@@ -33,6 +33,7 @@
    color: #212121;
    -webkit-font-smoothing: atialiased;
    -moz-osx-font-smoothing: grayscale;
+   background-color: #fcf5e6;
  }
 
  ul {
@@ -90,15 +91,157 @@
   height: 72%;
 }
 
+.sidebar {
+  width: 75px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--black);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: width .3s;
+}
+
+.sidebar--opened {
+  width: 325px;
+  padding: 0 3% 0 4%;
+}
+
+.sidebar__menu {
+  position: absolute;
+  left: -400px;
+  transition: left .3s;
+}
+
+.sidebar--opened .sidebar__menu {
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transition-delay: .1s;
+}
+
+.sidebar__hamburger {
+  display: block;
+  position: absolute;
+  top: 27px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.sidebar__hamburger-icon {
+  width: 29px;
+  height: 29px;
+  fill: var(--yellow);
+}
+
+.sidebar--opened .sidebar__hamburger {
+  display: none;
+}
+
+.sidebar--opened .sidebar__header {
+  display: flex;
+}
+
+.sidebar__header {
+  position: absolute;
+  top: 29px;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+}
+
+.sidebar__close {
+  position: absolute;
+  top: -4px;
+  right: 28px;
+}
+
+.sidebar__close-icon {
+  width: 29px;
+  height: 29px;
+  fill: var(--yellow);
+}
+
+.side-menu__list {
+  text-align: center;
+}
+
+.side-menu__item {
+  margin-bottom: 25px;
+}
+
+.side-menu__link {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--titlesFont);
+  color: var(--yellow);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.side-menu__link:hover {
+  color: var(--red);
+}
+
+
 .fade-slider {
   width: 100%;
   height: 100%;
+  position: relative;
  }
 
 .fade-slider__item {
-  background: url('./img/content/hero/slider_pic_1.png') center center /contain no-repeat;
+  background: center center /contain no-repeat;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity .3s;
 }
+
+.fade-slider__item--visible {
+  opacity: 1;
+}
+
+.fade-slider__item--style-thirts {
+  background-image: url('./img/content/hero/slider_pic_1.png');
+}
+
+.fade-slider__item--style-games {
+  background-image: url('./img/content/hero/slider_pic_2.png');
+}
+
+.fade-slider__item--style-games .lined-text {
+  position: absolute;
+  white-space: nowrap; 
+  align-items: center;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fade-slider__item--style-presents {
+  background-image: url('./img/content/hero/slider_pic_3.png');
+  z-index: 2;
+}
+
+.fade-slider__item--style-presents .lined-text {
+  position: absolute;
+  white-space: nowrap;
+  align-items: center;
+  top: 100px;
+  right: 150px;
+} 
+
 
 .fade-slider__text {
   position: absolute;
@@ -357,6 +500,14 @@
   margin-bottom: 120px;
 }
 
+.footer__container {
+  width: 1105px;
+}
+
+.site-menu {
+  margin-bottom: 115px;
+}
+
 .site-menu__sections {
   display: flex;
   justify-content: space-between;
@@ -406,6 +557,66 @@
   margin-bottom: 5px;
 }
 
-.footer__container {
-  
+.extras {
+  display: flex;
+  margin-bottom: 95px;
+}
+
+.extras__col {
+ margin-right: 30px;
+ flex: 1;
+}
+
+.extras__col:last-child {
+  margin-right: 0px;
+}
+
+.extras__best {
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: var(--black);
+  font-size: 50px;
+  font-weight: bold;
+  font-family: var(--titlesFont);
+  padding: 40px 5%;
+  line-height: 1;
+  display: block;
+}
+
+.extra__col-socials {
+  width: 100%;
+  height: 100%;
+  background: url('./img/bg/pattern.png') center center / 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials {
+  display: flex;
+}
+
+.socials__item {
+  margin-right: 50px;
+}
+
+.socials__item:last-child {
+  margin-right: 0px;
+}
+
+.socials__link {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.socials__link:hover .social__icon {
+  fill: var(--red);
+}
+
+.social__icon {
+  width: 100%;
+  height: 100%;
 }
